@@ -31,15 +31,19 @@ public abstract class AbstractJpaDAO <T extends Serializable>{
 	}
 
 	public void create(T entity) {
-		getEntityManager().persist(entity);
+		EntityManager manager = getEntityManager();
+		manager.persist(entity);
 	}
 	
 	public T update(T entity) {
-		return getEntityManager().merge(entity);
+		EntityManager manager = getEntityManager();
+		T merged = manager.merge(entity);
+		return merged;
 	}
 
 	public void delete(T entity) {
-		getEntityManager().remove(entity);
+		EntityManager manager = getEntityManager();
+		manager.remove(entity);
 	}
 
 	public void deletebyId(long entityId) {

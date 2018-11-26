@@ -11,10 +11,10 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.ToString;
 
-@Data
-@ToString
 @Entity
 @Table(name = "carro_estoque")
+@Data
+@ToString
 public class CarroEstoque implements Serializable{
 
 	private static final long serialVersionUID = 3200213257418572774L;
@@ -26,4 +26,7 @@ public class CarroEstoque implements Serializable{
 	private String marca; 
 	
 	private String nome_carro;
+	
+	private long id_loja;
+	
 }

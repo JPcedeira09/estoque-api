@@ -22,7 +22,6 @@ public class EstoqueRepository extends AbstractJpaDAO<CarroEstoque>{
 	
 	@Transactional(readOnly = true)
 	public List<CarroEstoque> findAll() {
-		// TODO Auto-generated method stub
 		return super.findAll();
 	}
 	

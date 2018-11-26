@@ -29,7 +29,6 @@ public class PersistenceJPAConfig {
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
 		em.setJpaProperties(additionalProperties());
-
 		return em;
 	}
 
@@ -37,7 +36,7 @@ public class PersistenceJPAConfig {
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/motorizeDB?createDatabaseIfNotExist=true");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/motorizeDB");
 		dataSource.setUsername("root");
 		dataSource.setPassword("Jpmysql09@");
 		return dataSource;
@@ -62,7 +61,6 @@ public class PersistenceJPAConfig {
 		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		properties.setProperty(
 				"hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-
 		return properties;
 	}
 }
