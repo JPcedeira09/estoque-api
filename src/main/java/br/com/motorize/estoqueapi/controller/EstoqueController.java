@@ -28,6 +28,10 @@ public class EstoqueController {
 		return txt;
 	}
 	
+	@GetMapping("/feign")
+	public String feign() {
+		return "TESTE";
+	}
 	@PostMapping("/add")
 	public void add(@RequestBody CarroEstoque estoque) {
 		estoqueRepository.create(estoque);
