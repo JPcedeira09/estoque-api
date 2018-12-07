@@ -27,11 +27,7 @@ public class EstoqueController {
 		log.info("Nome do Hello: txt={}", txt);
 		return txt;
 	}
-	
-	@GetMapping("/feign")
-	public String feign() {
-		return "TESTE";
-	}
+
 	@PostMapping("/add")
 	public void add(@RequestBody CarroEstoque estoque) {
 		estoqueRepository.create(estoque);
@@ -46,13 +42,13 @@ public class EstoqueController {
 	
 	@GetMapping("/findAll")
 	public List<CarroEstoque> findAll() {
-		log.info("Estoque find");
+		log.info("Estoque findAll");
 		return estoqueRepository.findAll();
 	}
 	
 	@GetMapping("/find/marca/{marca}")
-	public List<CarroEstoque> findByDepartment(@PathVariable("marca") String marca) {
-		log.info("Estoque find: departmentId={}", marca);
+	public List<CarroEstoque> findByMarca(@PathVariable("marca") String marca) {
+		log.info("Estoque find: Marca={}", marca);
 		return estoqueRepository.findMarca(marca);
 	}
 
