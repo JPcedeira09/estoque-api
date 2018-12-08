@@ -14,33 +14,22 @@ import lombok.Data;
 import lombok.ToString;
 
 @Entity
-@Table(name = "carro_estoque")
+@Table(name = "funcionario")
 @Data
 @ToString
-public class CarroEstoque implements Serializable{
+public class Funcionario implements Serializable {
 
-	private static final long serialVersionUID = 3200213257418572774L;
+	private static final long serialVersionUID = -5727594560683215709L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_carro;
+	private long id_funcionario;
 	
     @OneToOne(cascade=CascadeType.ALL)  
 	private  LojaCarro loja;
+    
+	private String nome;
 	
-	private String marca_carro; 
+	private Double valor_comissao;
 	
-	private String nome_carro;
-	
-	private String versao_carro;
-	
-	private Double preco_carro;
-	
-	private Integer ano_carro;
-	
-	private Integer ano_versao;
-	
-	private long id_loja;
-	
-	private long nome_loja;
 }
