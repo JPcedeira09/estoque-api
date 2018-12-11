@@ -3,6 +3,7 @@ package br.com.motorize.estoqueapi.persistence.repository;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -15,6 +16,22 @@ public class AcessoRepository extends AbstractJpaDAO<Acesso>{
 
 	public AcessoRepository() {
 		setClazz(Acesso.class);
+	}
+
+	public Acesso login(String email, String senha) {
+		String query = "select a from Acesso a where a.email = :email and a.senha = :senha";
+		TypedQuery<Acesso> acessoquery = getEntityManager().createQuery(query, Acesso.class);
+		acessoquery.setParameter("email", email);
+		acessoquery.setParameter("senha", senha);
+		Acesso acesso = acessoquery.getSingleResult();
+		
+		if(!acesso.getEmail().isEmpty()) {
+			acesso.setLogavel(true);
+			return acesso;
+		}else {
+			acesso.setLogavel(false);
+			return acesso;
+		}
 	}
 
 	@Transactional

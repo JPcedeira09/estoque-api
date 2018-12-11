@@ -1,7 +1,5 @@
 package br.com.motorize.estoqueapi.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,39 +20,33 @@ public class AcessoController {
 	@Autowired
 	AcessoRepository acessoRepository;
 
+	@GetMapping("login/{email}/{senha}")
+	public Acesso login(@PathVariable("email") String email, @PathVariable("senha") String senha) {
+		log.info("Acesso LOGIN - email: {} com senha:", email, senha);
+		return acessoRepository.login(email, senha);
+	}
+	
 	@PostMapping("add")
 	public void addLoja(@RequestBody Acesso lojaCarro) {
+		log.info("Acesso add: {}", lojaCarro);
 		acessoRepository.create(lojaCarro);
-		log.info("Loja add: {}", lojaCarro);
-	}
-
-	@PostMapping("delete")
-	public void deleteLoja(@RequestBody Acesso lojaCarro) {
-		acessoRepository.delete(lojaCarro);
-		log.info("Loja add: {}", lojaCarro);
 	}
 
 	@GetMapping("deletebyId/{id}")
 	public void deletebyIdLoja(@PathVariable("id") long id) {
 		acessoRepository.deletebyId(id);
-		log.info("Loja deletebyId: {}", id);
+		log.info("Acesso deletebyId: {}", id);
 	}
 
 	@PostMapping("update")
 	public Acesso updateLoja(@RequestBody Acesso acesso) {
-		log.info("Loja update: {}", acesso);
+		log.info("Acesso update: {}", acesso);
 		return acessoRepository.update(acesso);
-	}
-
-	@GetMapping("findAll")
-	public List<Acesso> findAllLoja() {
-		log.info("Loja findAll");
-		return acessoRepository.findAll();
 	}
 
 	@GetMapping("findOne/{id}")
 	public Acesso findOneLoja(@PathVariable("id") long id) {
-		log.info("Loja find id: {}", id);
+		log.info("Acesso find id: {}", id);
 		return acessoRepository.findOne(id);
 	}
 }

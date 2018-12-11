@@ -32,4 +32,6 @@ public class Funcionario implements Serializable {
 	
 	private Double valor_comissao;
 	
+    @OneToOne(cascade=CascadeType.ALL)  
+	private  Acesso acesso;
 }

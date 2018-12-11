@@ -19,7 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/loja/")
 public class LojaController {
 
-	/// BLOCO DE SERVIÇOS DA LOJA 
 	@Autowired
 	LojaRepository lojaRepository;
 

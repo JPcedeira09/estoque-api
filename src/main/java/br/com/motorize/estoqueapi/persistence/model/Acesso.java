@@ -2,6 +2,7 @@ package br.com.motorize.estoqueapi.persistence.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,4 +29,7 @@ public class Acesso implements Serializable{
 	private String usuario;
 	
 	private String senha;
+	
+    @Column(nullable = false)   
+	private Boolean logavel = false;
 }
