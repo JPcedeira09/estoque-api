@@ -19,7 +19,8 @@ public class AcessoRepository extends AbstractJpaDAO<Acesso>{
 	}
 
 	public Acesso login(String email, String senha) {
-		String query = "select a from Acesso a where a.email = :email and a.senha = :senha";
+		
+		String query = "select c from Acesso c where c.email = :email and c.senha = :senha";
 		TypedQuery<Acesso> acessoquery = getEntityManager().createQuery(query, Acesso.class);
 		acessoquery.setParameter("email", email);
 		acessoquery.setParameter("senha", senha);

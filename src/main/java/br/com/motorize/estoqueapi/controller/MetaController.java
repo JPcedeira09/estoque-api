@@ -3,6 +3,7 @@ package br.com.motorize.estoqueapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +34,7 @@ public class MetaController {
 				metasRepository.delete(lojaCarro);
 			}
 
-			@PostMapping("deletebyId/{id}")
+			@GetMapping("deletebyId/{id}")
 			public void deletebyIdMeta(@PathVariable("id")  long id) {
 				log.info("Meta deletebyId: {}", id);
 				metasRepository.deletebyId(id);
@@ -45,14 +46,14 @@ public class MetaController {
 				return metasRepository.update(meta);
 			}
 
-			@PostMapping("findAll")
+			@GetMapping("findAll")
 			public List<Meta> findAllMeta() {
 				log.info("Meta findAll");
 				return metasRepository.findAll();
 			}
 
-			@PostMapping("findOne/{id}")
-			public Meta findOneMeta(@PathVariable("id")  long id) {
+			@GetMapping("findOne/{id}")
+			public Meta findOneMeta(@PathVariable("id") long id) {
 				log.info("Meta find id: {}", id);
 				return metasRepository.findOne(id);
 			}

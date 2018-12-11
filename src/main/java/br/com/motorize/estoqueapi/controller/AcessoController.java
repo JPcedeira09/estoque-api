@@ -22,7 +22,7 @@ public class AcessoController {
 
 	@GetMapping("login/{email}/{senha}")
 	public Acesso login(@PathVariable("email") String email, @PathVariable("senha") String senha) {
-		log.info("Acesso LOGIN - email: {} com senha:", email, senha);
+		log.info("Acesso LOGIN - email: {} com senha:{}", email, senha);
 		return acessoRepository.login(email, senha);
 	}
 	
