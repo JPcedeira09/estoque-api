@@ -2,10 +2,15 @@ package br.com.motorize.estoqueapi.persistence.repository;
 
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
 
 import br.com.motorize.estoqueapi.persistence.model.Meta;
 
+@Repository
+@ManagedBean
 public class MetasRepository extends AbstractJpaDAO<Meta>{
 
 	public MetasRepository() {

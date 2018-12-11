@@ -17,7 +17,7 @@ public class LojaRepository extends AbstractJpaDAO<LojaCarro>{
 	public LojaRepository() {
 		setClazz(LojaCarro.class);
 	}
-	
+
 	@Transactional
 	public List<LojaCarro> findAll() {
 		return super.findAll();
@@ -27,17 +27,17 @@ public class LojaRepository extends AbstractJpaDAO<LojaCarro>{
 	public void create(LojaCarro entity) {
 		super.create(entity);
 	}
-	
+
 	@Transactional
 	public void deletebyId(long entityId) {
 		super.deletebyId(entityId);
 	}
-	
+
 	@Transactional
 	public void delete(LojaCarro entity) {
 		super.delete(entity);
 	}
-	
+
 	@Transactional
 	public LojaCarro update(LojaCarro entity) {
 		return super.update(entity);
